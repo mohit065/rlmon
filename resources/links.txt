@@ -1,0 +1,2 @@
+https://github.com/leolellisr/poke_RL
+https://www.reddit.com/r/reinforcementlearning/comments/12q86tp/resource_create_your_own_pok%C3%A9mon_battle_bot_with/
