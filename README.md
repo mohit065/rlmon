@@ -1,2 +1,3 @@
 # rlmon
-A Pokemon Showdown battle bot using reinforcement learning
+
+npm install in pokemon-showdown dir, followed by python3 app.py in src
