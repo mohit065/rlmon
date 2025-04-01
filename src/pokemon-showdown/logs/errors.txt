@@ -1,0 +1,64 @@
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: Process sockets.js 6244 crashed and had to be restarted
+    at RawProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:471:4)
+    at Worker.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at Worker.emit (node:events:524:28)
+    at Worker.emit (node:domain:489:12)
+    at ChildProcess.<anonymous> (node:internal/cluster/primary:209:12)
+    at Object.onceWrapper (node:events:638:28)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: Process room-battle.js 10636 crashed and had to be restarted
+    at StreamProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:471:4)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at SQLDatabaseManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
