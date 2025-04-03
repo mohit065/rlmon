@@ -25,7 +25,7 @@ async def main():
     await asyncio.sleep(2)
     
     print("Starting battles...")
-    await environment.run_battle(n_battles=1)
+    await environment.run_battle(n_battles=5)
     print("Battles completed!")
 
 if __name__ == "__main__":

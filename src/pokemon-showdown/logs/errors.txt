@@ -62,3 +62,48 @@ Error: IPC channel is already disconnected
     at ChildProcess.emit (node:domain:489:12)
     at finish (node:internal/child_process:934:14)
     at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: write EPIPE
+    at ChildProcess.target._send (node:internal/child_process:878:20)
+    at ChildProcess.target.send (node:internal/child_process:751:19)
+    at Worker.send (node:internal/cluster/worker:48:10)
+    at RawSubprocessStream._write (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:92:24)
+    at RawSubprocessStream.write (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\streams.ts:835:15)
+    at Object.roomBroadcast (C:\Users\mohito\work\rl2\src\pokemon-showdown\server\sockets.ts:107:23)
+    at BasicRoom.send (C:\Users\mohito\work\rl2\src\pokemon-showdown\server\rooms.ts:343:31)
+    at BasicRoom.update (C:\Users\mohito\work\rl2\src\pokemon-showdown\server\rooms.ts:436:8)
+    at GlobalRoomState.reportCrash (C:\Users\mohito\work\rl2\src\pokemon-showdown\server\rooms.ts:1855:35)
+    at Object.crashlog (C:\Users\mohito\work\rl2\src\pokemon-showdown\server\monitor.ts:90:16)
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (node:internal/child_process:904:26)
+    at QueryProcessWrapper.destroy (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:205:16)
+    at QueryProcessWrapper.release (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:191:9)
+    at QueryProcessManager.releaseCrashed (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:455:16)
+    at ChildProcess.<anonymous> (C:\Users\mohito\work\rl2\src\pokemon-showdown\lib\process-manager.ts:512:47)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess.emit (node:domain:489:12)
+    at finish (node:internal/child_process:934:14)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)

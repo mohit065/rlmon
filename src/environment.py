@@ -24,7 +24,3 @@ class BattleEnvironment:
         
         # Debugging information
         print(f"Number of battles completed: {self.agent1.n_finished_battles}")
-        
-        # Close connections
-        await self.agent1.close_connections()
-        await self.agent2.close_connections()
