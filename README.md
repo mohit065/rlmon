@@ -1,3 +1,5 @@
 # rlmon
 
-npm install in pokemon-showdown dir, followed by python3 app.py in src
+npm install in pokemon-showdown, followed by node pokemon-showdown start --no-security
+to train model, run train.py
+to battle both agents, run app.py
