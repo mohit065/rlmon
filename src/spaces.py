@@ -11,16 +11,11 @@ class PokemonEnvironment:
         self.observation_dim = 126
         self.action_dim = 9
         
-        self.POKEMON_TYPES = [
-            "normal", "fire", "water", "electric", "grass", "ice", "fighting",
-            "poison", "ground", "flying", "psychic", "bug", "rock", "ghost",
-            "dragon", "dark", "steel"
-        ]
+        self.POKEMON_TYPES = ["normal", "fire", "water", "electric", "grass", "ice", "fighting","poison", 
+            "ground", "flying", "psychic", "bug", "rock", "ghost","dragon", "dark", "steel"]
         
         self.TYPE_TO_IDX = {type: idx for idx, type in enumerate(self.POKEMON_TYPES)}
-        self.STATUS_CONDITIONS = [
-            "psn", "tox", "par", "slp", "frz", "brn"
-        ]
+        self.STATUS_CONDITIONS = ["psn", "tox", "par", "slp", "frz", "brn"]
         
         self.STATUS_TO_IDX = {status: idx for idx, status in enumerate(self.STATUS_CONDITIONS)}
         
@@ -66,20 +61,20 @@ class PokemonEnvironment:
             victory_value=30.0
         )
 
-    def reward_computing_helper(
-        self,
-        battle: AbstractBattle,
-        fainted_value: float = 0.0,
-        hp_value: float = 0.0,
-        victory_value: float = 1.0
-    ) -> float:
+    def reward_computing_helper(self,battle: AbstractBattle,fainted_value: float = 0.0,
+        hp_value: float = 0.0,victory_value: float = 1.0) -> float:
+
         if battle.ended:
             return victory_value * (1 if battle.won else -1)
+        
         total_hp_reward = 0
+
         if battle.active_pokemon:
             total_hp_reward += hp_value * battle.active_pokemon.current_hp_fraction
+
         if battle.opponent_active_pokemon:
             total_hp_reward -= hp_value * battle.opponent_active_pokemon.current_hp_fraction
+
         fainted_opponent = len([p for p in battle.opponent_team.values() if p.fainted])
         fainted_self = len([p for p in battle.team.values() if p.fainted])
         fainted_reward = fainted_value * (fainted_opponent - fainted_self)
@@ -145,15 +140,20 @@ class PokemonEnvironment:
         if action_idx < 4:
             if action_idx < len(available_moves):
                 return available_moves[action_idx]
+            
             if available_moves:
                 print("[Warning] Invalid move index, falling back to random move.")
                 return np.random.choice(available_moves)
+            
             return None
         else:
             switch_idx = action_idx - 4
+
             if switch_idx < len(available_switches):
                 return available_switches[switch_idx]
+            
             if available_switches:
                 print("[Warning] Invalid switch index, falling back to random switch.")
                 return np.random.choice(available_switches)
+            
             return np.random.choice(available_moves) if available_moves else None
