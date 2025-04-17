@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from collections import deque, namedtuple
 
 from poke_env.player import Player
-from poke_env import AccountConfiguration, LocalhostServerConfiguration
+from poke_env import AccountConfiguration
 from poke_env.environment.battle import Battle
 
 STATE_DIM = 150
@@ -29,7 +29,7 @@ MODEL_PATH = "dqn_model.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 Experience = namedtuple('Experience',('state', 'action', 'reward', 'next_state', 'done'))
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.getLogger('poke_env.player').setLevel(logging.FATAL)
 
 class DQN(nn.Module):
     def __init__(self, state_dim, action_dim, hidden_dim):
@@ -62,14 +62,8 @@ class ReplayBuffer:
 
 class DQNAgent(Player):
     def __init__(self, battle_format):
-        account_configuration = AccountConfiguration(username=USERNAME,password=PASSWORD)
-        server_configuration = LocalhostServerConfiguration
-
-        super().__init__(
-            account_configuration=account_configuration,
-            server_configuration=server_configuration,
-            battle_format=battle_format,
-        )
+        account_config = AccountConfiguration(username=USERNAME,password=PASSWORD)
+        super().__init__(account_configuration=account_config,battle_format=battle_format,)
         self.policy_net = DQN(STATE_DIM, ACTION_DIM, HIDDEN_DIM).to(device)
         self.target_net = DQN(STATE_DIM, ACTION_DIM, HIDDEN_DIM).to(device)
         self.target_net.load_state_dict(self.policy_net.state_dict())
@@ -153,7 +147,7 @@ class DQNAgent(Player):
                 possible_actions.extend(valid_switch_indices)
 
             if not possible_actions:
-                print("Error here: No possible actions") # this is an error
+                print("Error here: No possible actions") # (this is an error)
                 return 0
             
             action_idx = random.choice(possible_actions)
