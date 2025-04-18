@@ -3,25 +3,22 @@ import asyncio
 import logging
 
 from agent import DQNAgent
-from poke_env import AccountConfiguration
 from poke_env.player import RandomPlayer, MaxBasePowerPlayer
+from teams import teamlist
 
-BATTLE_FORMAT = "gen4randombattle"
+BATTLE_FORMAT = "gen4anythinggoes"
 NUM_EPISODES = 10000
 LOG_FREQ = 10
 SAVE_FREQ = 1000
-USERNAME = "rlmon2"
-PASSWORD = "rlmon2"
 
-account_config = AccountConfiguration(username=USERNAME,password=PASSWORD)
-opponent = RandomPlayer(account_configuration=account_config,battle_format=BATTLE_FORMAT) # needs to be here
+opponent = RandomPlayer(battle_format=BATTLE_FORMAT, team=teamlist[1]) # needs to be here
 logging.getLogger('poke_env.player').setLevel(logging.FATAL)
 
 async def train_dqn(agent, opponent):
     start_time = time.time()
     win_rates = []
     total_steps = agent.steps_done
-    print(f"\nStarting training for {NUM_EPISODES} episodes against {USERNAME}...")
+    print(f"\nStarting training for {NUM_EPISODES} episodes...")
 
     for episode in range(1, NUM_EPISODES + 1):
         agent.last_battle_state = None
@@ -57,8 +54,8 @@ async def train_dqn(agent, opponent):
 
 async def main():
     print("Setting up DQN agent and opponent...")
-    player = DQNAgent(battle_format=BATTLE_FORMAT) # needs to be here as well
-    opponent = RandomPlayer(account_configuration=account_config,battle_format=BATTLE_FORMAT) # also needs to be here
+    player = DQNAgent(battle_format=BATTLE_FORMAT, team=teamlist[0]) # needs to be here as well
+    opponent = RandomPlayer(battle_format=BATTLE_FORMAT, team=teamlist[1]) # also needs to be here
     await train_dqn(agent=player,opponent=opponent)
 
 if __name__ == "__main__":

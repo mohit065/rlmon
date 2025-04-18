@@ -8,7 +8,6 @@ import torch.nn.functional as F
 from collections import deque, namedtuple
 
 from poke_env.player import Player
-from poke_env import AccountConfiguration
 from poke_env.environment.battle import Battle
 
 STATE_DIM = 150
@@ -22,8 +21,6 @@ EPSILON_DECAY = 10000
 TARGET_UPDATE_FREQ = 1000
 REPLAY_BUFFER_SIZE = 50000
 BATCH_SIZE = 64
-USERNAME = "rlmonbot"
-PASSWORD = "rlmonbot"
 MODEL_PATH = "dqn_model.pth"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -61,9 +58,8 @@ class ReplayBuffer:
         return len(self.memory) >= batch_size
 
 class DQNAgent(Player):
-    def __init__(self, battle_format):
-        account_config = AccountConfiguration(username=USERNAME,password=PASSWORD)
-        super().__init__(account_configuration=account_config,battle_format=battle_format,)
+    def __init__(self, battle_format, team):
+        super().__init__(battle_format=battle_format,team=team)
         self.policy_net = DQN(STATE_DIM, ACTION_DIM, HIDDEN_DIM).to(device)
         self.target_net = DQN(STATE_DIM, ACTION_DIM, HIDDEN_DIM).to(device)
         self.target_net.load_state_dict(self.policy_net.state_dict())
