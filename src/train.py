@@ -1,65 +1,73 @@
+import os
 import time
 import asyncio
-import logging
 
+from teams import teams
 from agent import DQNAgent
-from poke_env.player import RandomPlayer, MaxBasePowerPlayer
-from teams import teamlist
+from poke_env.player import RandomPlayer, MaxBasePowerPlayer, SimpleHeuristicsPlayer
 
-BATTLE_FORMAT = "gen4anythinggoes"
-NUM_EPISODES = 10000
 LOG_FREQ = 10
 SAVE_FREQ = 1000
-
-opponent = RandomPlayer(battle_format=BATTLE_FORMAT, team=teamlist[1]) # needs to be here
-logging.getLogger('poke_env.player').setLevel(logging.FATAL)
-
-async def train_dqn(agent, opponent):
-    start_time = time.time()
-    win_rates = []
-    total_steps = agent.steps_done
-    print(f"\nStarting training for {NUM_EPISODES} episodes...")
-
-    for episode in range(1, NUM_EPISODES + 1):
-        agent.last_battle_state = None
-        agent.last_action_idx = None
-        try:
-            await agent.battle_against(opponent, n_battles=1)
-            current_wins = agent.n_won_battles
-            total_battles = agent.n_finished_battles
-            win_rate = current_wins / total_battles if total_battles > 0 else 0
-            win_rates.append(win_rate)
-            total_steps = agent.steps_done
-
-            if episode % LOG_FREQ == 0:
-                elapsed_time = time.time() - start_time
-                print(f"Episode: {episode}/{NUM_EPISODES} | "
-                      f"Steps: {total_steps} | "
-                      f"Total Win Rate: {win_rate:.3f} ({current_wins}/{total_battles}) | "
-                      f"Time: {elapsed_time:.2f}s")
-
-            if episode % SAVE_FREQ == 0:
-                agent.save_model()
-
-        except Exception as e:
-            print(f"Error during episode {episode}: {e}")
-            agent.reset_battles()
-            await asyncio.sleep(1)
-
-    agent.save_model()
-    print(f"\nTraining finished after {NUM_EPISODES} episodes.")
-    print(f"Final Win Rate: {agent.n_won_battles / agent.n_finished_battles:.3f}")
-    print(f"Total Steps: {total_steps}")
-
+NUM_EPISODES = 10000
+MODEL_PATH = "model.pth"
+BATTLE_FORMAT = "gen4anythinggoes"
 
 async def main():
-    print("Setting up DQN agent and opponent...")
-    player = DQNAgent(battle_format=BATTLE_FORMAT, team=teamlist[0]) # needs to be here as well
-    opponent = RandomPlayer(battle_format=BATTLE_FORMAT, team=teamlist[1]) # also needs to be here
-    await train_dqn(agent=player,opponent=opponent)
+    agent_team_id = 0
+    opponent_team_id = 1
+
+    random_player = RandomPlayer(battle_format=BATTLE_FORMAT, team=teams[opponent_team_id])
+    max_base_power_player = MaxBasePowerPlayer(battle_format=BATTLE_FORMAT, team=teams[opponent_team_id])
+    simple_heuristics_player = SimpleHeuristicsPlayer(battle_format=BATTLE_FORMAT, team=teams[opponent_team_id])
+
+    agent = DQNAgent(battle_format=BATTLE_FORMAT, team=teams[agent_team_id])
+    opponent = random_player
+
+    if os.path.exists(MODEL_PATH):
+        agent.load_model(path=MODEL_PATH)
+        print(f"LOADED EXISTING MODEL FROM {MODEL_PATH}. RESUMING TRAINING.")
+    else:
+        print(f"NO EXISTING MODEL FOUND AT {MODEL_PATH}. STARTING TRAINING FROM SCRATCH.")
+
+    print(f"TRAINING: DQNAgent WITH TEAM {1+agent_team_id} VS {type(opponent).__name__} WITH TEAM {1+opponent_team_id}")
+    print(f"STARTING TRAINING LOOP FOR {NUM_EPISODES} EPISODES...\n")
+
+    start_time = time.time()
+    episode_wins = []
+    previous_total_wins = 0
+
+    for episode in range(1, NUM_EPISODES + 1):
+        await agent.battle_against(opponent, n_battles=1)
+
+        current_total_wins = agent.n_won_battles
+        last_battle_won = 1 if current_total_wins > previous_total_wins else 0
+        episode_wins.append(last_battle_won)
+        previous_total_wins = current_total_wins
+
+        total_battles = agent.n_finished_battles
+        total_win_rate = current_total_wins / total_battles if total_battles > 0 else 0.0
+        total_steps = agent.steps_done
+
+        if episode % LOG_FREQ == 0:
+            elapsed_time = time.time() - start_time
+            print(f"EP: {episode}/{NUM_EPISODES} | STEPS: {total_steps} | "
+                f"WINRATE: {total_win_rate:.3f} ({current_total_wins}/{total_battles}) | "
+                f"TIME: {elapsed_time:.2f}s")
+
+        if episode % SAVE_FREQ == 0:
+            agent.save_model(path=MODEL_PATH)
+            print(f"\nSAVE {episode//SAVE_FREQ}: MODEL SAVED AT {MODEL_PATH}.\n")
+
+    agent.save_model(path=MODEL_PATH)
+    print(f"\nTRAINING LOOP FINISHED: {episode} EPISODES COMPLETED.")
+
+    final_total_battles = agent.n_finished_battles
+    final_total_wins = agent.n_won_battles
+    final_win_rate = final_total_wins / final_total_battles if final_total_battles > 0 else 0.0
+    print(f"FINAL W/R: {final_win_rate:.3f} ({final_total_wins}/{final_total_battles})")
+    print(f"FINAL STEPS: {agent.steps_done}")
 
 if __name__ == "__main__":
-    print("Starting DQN Training...")
     try:
         loop = asyncio.get_event_loop()
         if loop.is_running():
@@ -67,7 +75,9 @@ if __name__ == "__main__":
         else:
             loop.run_until_complete(main())
 
-    except RuntimeError:
+    except RuntimeError as e:
         asyncio.run(main())
-
-    print("Training script finished.")
+    except KeyboardInterrupt:
+        print("\nINTERRUPTED.")
+    finally:
+        print("TRAINING COMPLETED.")

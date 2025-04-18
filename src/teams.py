@@ -52,7 +52,6 @@ Modest Nature
 - Brick Break  
 - Drill Peck  
 - Hydro Pump  
-  
 """
 
 team2 = """
@@ -109,7 +108,6 @@ Timid Nature
 - Dragon Pulse  
 - Psychic  
 - Flash Cannon  
-
 """
 
 team3 = """
@@ -166,7 +164,6 @@ Adamant Nature
 - Superpower  
 - Head Smash  
 - Fire Punch  
-
 """
 
 team4 = """
@@ -223,7 +220,6 @@ Calm Nature
 - Flamethrower  
 - Ice Beam  
 - Steel Wing  
-  
 """
 
 team5 = """
@@ -280,7 +276,6 @@ Jolly Nature
 - Earthquake  
 - Superpower  
 - Stone Edge  
-
 """
 
 team6 = """
@@ -337,7 +332,6 @@ Adamant Nature
 - Seed Bomb  
 - Thunder Punch  
 - Stun Spore  
-
 """
 
-teamlist = [team1, team2, team3, team4, team5, team6]
+teams = [team1, team2, team3, team4, team5, team6]
