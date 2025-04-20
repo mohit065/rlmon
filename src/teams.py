@@ -1,5 +1,5 @@
 team1 = """
-Gengar  
+Gengar @ Leftovers
 Ability: Levitate  
 EVs: 4 Def / 252 SpA / 252 Spe  
 Timid Nature  
@@ -8,7 +8,7 @@ Timid Nature
 - Shadow Ball  
 - Psychic  
 
-Flygon  
+Flygon @ Leftovers
 Ability: Levitate  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
@@ -17,7 +17,7 @@ Jolly Nature
 - Dragon Claw  
 - Earthquake  
 
-Scizor  
+Scizor @ Leftovers
 Ability: Swarm  
 EVs: 252 Atk / 252 HP / 4 Def  
 Adamant Nature  
@@ -26,7 +26,7 @@ Adamant Nature
 - Night Slash  
 - Double-Edge  
 
-Roserade  
+Roserade @ Leftovers
 Ability: Natural Cure  
 EVs: 4 Def / 252 SpA / 252 Spe  
 Timid Nature  
@@ -35,7 +35,7 @@ Timid Nature
 - Sleep Powder  
 - Sludge Bomb  
 
-Aerodactyl  
+Aerodactyl @ Leftovers
 Ability: Rock Head  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
@@ -44,7 +44,7 @@ Jolly Nature
 - Crunch  
 - Dragon Claw  
 
-Empoleon  
+Empoleon @ Leftovers
 Ability: Torrent  
 EVs: 252 HP / 252 SpA / 4 SpD  
 Modest Nature  
@@ -55,7 +55,7 @@ Modest Nature
 """
 
 team2 = """
-Torterra  
+Torterra @ Leftovers
 Ability: Overgrow  
 EVs: 252 HP / 252 Atk / 4 SpD  
 Adamant Nature  
@@ -64,7 +64,7 @@ Adamant Nature
 - Seed Bomb  
 - Double-Edge  
 
-Ludicolo  
+Ludicolo @ Leftovers
 Ability: Swift Swim  
 EVs: 4 HP / 252 SpA / 252 Spe  
 Modest Nature  
@@ -73,7 +73,7 @@ Modest Nature
 - Surf  
 - Giga Drain  
 
-Salamence  
+Salamence @ Leftovers
 Ability: Intimidate  
 EVs: 252 Atk / 4 SpA / 252 Spe  
 Naive Nature  
@@ -82,7 +82,7 @@ Naive Nature
 - Brick Break  
 - Stone Edge  
 
-Skarmory  
+Skarmory @ Leftovers
 Ability: Keen Eye  
 EVs: 252 HP / 232 Def / 24 Spe  
 Impish Nature  
@@ -91,7 +91,7 @@ Impish Nature
 - Facade  
 - Steel Wing  
 
-Claydol  
+Claydol @ Leftovers
 Ability: Levitate  
 EVs: 252 HP / 144 Def / 112 SpA  
 Bold Nature  
@@ -100,7 +100,7 @@ Bold Nature
 - Ancient Power  
 - Psychic  
 
-Lucario  
+Lucario @ Leftovers
 Ability: Inner Focus  
 EVs: 4 HP / 252 SpA / 252 Spe  
 Timid Nature  
@@ -111,7 +111,7 @@ Timid Nature
 """
 
 team3 = """
-Charizard  
+Charizard @ Leftovers
 Ability: Blaze  
 EVs: 4 Def / 252 SpA / 252 Spe  
 Timid Nature  
@@ -120,7 +120,7 @@ Timid Nature
 - Ancient Power  
 - Will-O-Wisp  
 
-Heracross  
+Heracross @ Leftovers
 Ability: Swarm  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
@@ -129,7 +129,7 @@ Jolly Nature
 - Shadow Claw  
 - Stone Edge  
 
-Garchomp  
+Garchomp @ Leftovers
 Ability: Sand Veil  
 EVs: 252 Atk / 4 Def / 252 Spe  
 Jolly Nature  
@@ -138,7 +138,7 @@ Jolly Nature
 - Brick Break  
 - Aqua Tail  
 
-Starmie  
+Starmie @ Leftovers
 Ability: Illuminate  
 EVs: 4 HP / 252 SpA / 252 Spe  
 Timid Nature  
@@ -147,7 +147,7 @@ Timid Nature
 - Ice Beam  
 - Thunderbolt  
 
-Drapion  
+Drapion @ Leftovers
 Ability: Sniper  
 EVs: 252 Atk / 4 SpD / 252 HP  
 Adamant Nature  
@@ -156,7 +156,7 @@ Adamant Nature
 - X-Scissor  
 - Poison Jab  
 
-Aggron  
+Aggron @ Leftovers
 Ability: Rock Head  
 EVs: 252 HP / 252 Atk / 4 SpD  
 Adamant Nature  
@@ -167,7 +167,7 @@ Adamant Nature
 """
 
 team4 = """
-Swampert  
+Swampert @ Leftovers
 Ability: Torrent  
 EVs: 252 HP / 252 Atk / 4 SpD  
 Adamant Nature  
@@ -176,7 +176,7 @@ Adamant Nature
 - Earthquake  
 - Ice Punch  
 
-Dragonite  
+Dragonite @ Leftovers
 Ability: Inner Focus  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Adamant Nature  
@@ -185,7 +185,7 @@ Adamant Nature
 - Aqua Tail  
 - Stone Edge  
 
-Venusaur  
+Venusaur @ Leftovers
 Ability: Overgrow  
 EVs: 252 HP / 120 Def / 136 SpA  
 Bold Nature  
@@ -194,7 +194,7 @@ Bold Nature
 - Sludge Bomb  
 - Sleep Powder  
 
-Weavile  
+Weavile @ Leftovers
 Ability: Pressure  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
@@ -203,7 +203,7 @@ Jolly Nature
 - Avalanche  
 - X-Scissor  
 
-Metagross  
+Metagross @ Leftovers
 Ability: Clear Body  
 EVs: 252 Atk / 252 HP / 4 Def  
 Adamant Nature  
@@ -212,7 +212,7 @@ Adamant Nature
 - Hammer Arm  
 - Earthquake  
 
-Altaria  
+Altaria @ Leftovers
 Ability: Natural Cure  
 EVs: 252 HP / 4 SpA / 252 SpD  
 Calm Nature  
@@ -223,7 +223,7 @@ Calm Nature
 """
 
 team5 = """
-Infernape  
+Infernape @ Leftovers
 Ability: Blaze  
 EVs: 252 Atk / 4 SpA / 252 Spe  
 Naive Nature  
@@ -232,7 +232,7 @@ Naive Nature
 - Thunder Punch  
 - Flare Blitz  
 
-Exeggutor  
+Exeggutor @ Leftovers
 Ability: Chlorophyll  
 EVs: 4 HP / 252 SpA / 252 Spe  
 Modest Nature  
@@ -241,7 +241,7 @@ Modest Nature
 - Psychic  
 - Sludge Bomb  
 
-Rhyperior  
+Rhyperior @ Leftovers
 Ability: Lightning Rod  
 EVs: 248 HP / 252 Atk / 8 SpD  
 Adamant Nature  
@@ -250,7 +250,7 @@ Adamant Nature
 - Avalanche  
 - Stone Edge  
 
-Gallade (M)  
+Gallade (M) @ Leftovers
 Ability: Steadfast  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Adamant Nature  
@@ -259,7 +259,7 @@ Adamant Nature
 - Fire Punch  
 - Thunder Punch  
 
-Gyarados  
+Gyarados @ Leftovers
 Ability: Intimidate  
 EVs: 252 Atk / 4 Def / 252 Spe  
 Adamant Nature  
@@ -268,7 +268,7 @@ Adamant Nature
 - Earthquake  
 - Body Slam  
 
-Mamoswine  
+Mamoswine @ Leftovers
 Ability: Oblivious  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
@@ -279,7 +279,7 @@ Jolly Nature
 """
 
 team6 = """
-Blaziken  
+Blaziken @ Leftovers
 Ability: Blaze  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Jolly Nature  
@@ -288,7 +288,7 @@ Jolly Nature
 - Earthquake  
 - Flare Blitz  
 
-Gliscor  
+Gliscor @ Leftovers
 Ability: Hyper Cutter  
 EVs: 244 HP / 12 Atk / 252 Def  
 Impish Nature  
@@ -297,7 +297,7 @@ Impish Nature
 - Night Slash  
 - Poison Jab  
 
-Staraptor  
+Staraptor @ Leftovers
 Ability: Intimidate  
 EVs: 252 Atk / 4 Def / 252 Spe  
 Jolly Nature  
@@ -306,7 +306,7 @@ Jolly Nature
 - Steel Wing  
 - Double-Edge  
 
-Steelix  
+Steelix @ Leftovers
 Ability: Rock Head  
 EVs: 252 HP / 252 Def / 4 Atk  
 Impish Nature  
@@ -315,7 +315,7 @@ Impish Nature
 - Stone Edge  
 - Crunch  
 
-Nidoking (M)  
+Nidoking (M) @ Leftovers
 Ability: Poison Point  
 EVs: 4 HP / 252 SpA / 252 Spe  
 Timid Nature  
@@ -324,7 +324,7 @@ Timid Nature
 - Ice Beam  
 - Thunderbolt  
 
-Breloom  
+Breloom @ Leftovers
 Ability: Poison Heal  
 EVs: 252 Atk / 4 SpD / 252 Spe  
 Adamant Nature  
