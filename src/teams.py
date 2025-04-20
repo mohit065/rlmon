@@ -1,3 +1,14 @@
+'''
+Teams used for training and evaluation. You can add your own team in showdown format here, with some conditions:
+- Only dual type pokemon allowed, single type pokemon will cause errors
+- Weather effects have not been tested, may cause errors
+- Flinching/Confusion/Affection may cause errors
+- Some items may cause errors
+- Some moves like Dig/Solarbeam also may cause errors
+- Abilities like Slow Start may also cause errors
+- Teams are made for the gen4anythinggoes format
+'''
+
 team1 = """
 Gengar @ Leftovers
 Ability: Levitate  

@@ -1,13 +1,15 @@
 import time
+import os
 import asyncio
 
 from teams import teams
 from agent import DQNAgent
 from poke_env.player import RandomPlayer, MaxBasePowerPlayer, SimpleHeuristicsPlayer
 
-LOG_FREQ = 50                           # Logging frequency
-NUM_EPISODES = 5000                     # Number of episodes to train on
-BATTLE_FORMAT = "gen4anythinggoes"      # Battle format
+LOG_FREQ = 50                            # Logging frequency
+NUM_EPISODES = 5000                      # Number of episodes to train on
+BATTLE_FORMAT = "gen4anythinggoes"       # Battle format
+MODEL_DIR = "../models"                  # Directory to save models
 
 async def main():
     # Agent and Opponent teams
@@ -22,7 +24,7 @@ async def main():
     agent = DQNAgent(battle_format=BATTLE_FORMAT, team=teams[agent_team_id])
     opponent = opponent1
 
-    print(f"TRAINING: DQNAgent (TEAM {1+agent_team_id}) VS {type(opponent).__name__} (TEAM {1+opponent_team_id})")
+    print(f"\nTRAINING: DQNAgent (TEAM {1+agent_team_id}) VS {type(opponent).__name__} (TEAM {1+opponent_team_id})")
     print(f"STARTING TRAINING LOOP FOR {NUM_EPISODES} EPISODES...\n")
 
     start_time = time.time()
@@ -42,14 +44,20 @@ async def main():
         if episode % LOG_FREQ == 0:
             elapsed_time = time.time() - start_time
             print(f"EP: {episode}/{NUM_EPISODES} | STEPS: {total_steps} | "
-                f"WINRATE: {total_win_rate:.4f} ({total_wins}/{total_battles}) | "
-                f"TIME: {elapsed_time:.2f}s")
+                  f"WINRATE: {total_win_rate:.4f} ({total_wins}/{total_battles}) | "
+                  f"TIME: {elapsed_time:.2f}s")
 
+    # Final metrics and model save
     final_total_battles = agent.n_finished_battles
     final_total_wins = agent.n_won_battles
     final_win_rate = final_total_wins / final_total_battles if final_total_battles > 0 else 0.0
+    os.makedirs(MODEL_DIR, exist_ok=True)
+    model_path = f"{MODEL_DIR}/{opponent.__class__.__name__}_{1+agent_team_id}_{1+opponent_team_id}.pth"
+    agent.save_model(model_path)
+
     print(f"\nFINAL W/R: {final_win_rate:.4f} ({final_total_wins}/{final_total_battles})")
     print(f"FINAL STEPS: {agent.steps_done}")
+    print(f"MODEL SAVED TO {model_path}")
 
 if __name__ == "__main__":
     try:
@@ -61,6 +69,7 @@ if __name__ == "__main__":
 
     except RuntimeError as e:
         asyncio.run(main())
-
+    except KeyboardInterrupt as e:
+        print("INTERRUPTED")
     finally:
         print("ENDING...")

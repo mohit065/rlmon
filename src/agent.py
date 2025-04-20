@@ -461,3 +461,23 @@ class DQNAgent(Player):
         # Convert the chosen action index into a battle order and return it
         order = self._action_to_move(action_idx, battle)
         return order
+    
+    def save_model(self, path):
+        """Saves the policy and target networks along with optimizer state and step count."""
+
+        checkpoint = {
+            'policy_net_state_dict': self.policy_net.state_dict(),
+            'target_net_state_dict': self.target_net.state_dict(),
+            'optimizer_state_dict': self.optimizer.state_dict(),
+            'steps_done': self.steps_done
+        }
+        torch.save(checkpoint, path)
+
+    def load_model(self, path):
+        """Loads the policy and target networks, optimizer state, and step count."""
+
+        checkpoint = torch.load(path, map_location=device)
+        self.policy_net.load_state_dict(checkpoint['policy_net_state_dict'])
+        self.target_net.load_state_dict(checkpoint['target_net_state_dict'])
+        self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        self.steps_done = checkpoint.get('steps_done', 0)
