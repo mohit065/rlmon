@@ -1,13 +1,14 @@
-# rlmon - A Pokemon Showdown Bot Using Reinforcement Learning
+# [rlmon](https://github.com/mohit065/rlmon) - A Pokémon Showdown Bot Using Reinforcement Learning
 
 ## Index
+
 - [Overview](#overview)
 - [Setting the Game](#setting-the-game)
 - [Modeling the MDP](#modeling-the-mdp)
 - [Q-Learning](#q-learning)
 - [Results](#results)
 - [Observations](#observations)
-- [Conclusion](#conclusion)
+- [Challenges](#challenges)
 - [Steps to Run](#steps-to-run)
 - [Contributions](#contributions)
 
@@ -15,36 +16,37 @@
 
 ## Overview
 
-This project aims to implement, train and evaluate a reinforcement learning agent to play Pokemon battles on the Pokemon Showdown battle simulator. We first formulate a Pokemon battle as a *Markov Decision Process* (MDP), then train the agent to learn the optimal policy at each state via Deep Q-Learning, and evaluate its performance against a set of standard opponents.
+This project aims to implement, train and evaluate a reinforcement learning agent to play Pokémon battles on the Pokémon Showdown battle simulator. We first formulate a Pokémon battle as a *Markov Decision Process* (MDP), then train the agent to learn the optimal policy at each state via Deep Q-Learning, and evaluate its performance against a set of standard opponents.
 
 ---
 
 ## Setting the Game
 
-A Pokemon battle between a player and an opponent is a turn-based game where both sides have 6 pokemon each. At any point of time, exactly one pokemon from each side is *active* i.e. out for battle. At each turn, both the player and the opponent can either use their active pokemon to make a move, or switch out their active pokemon. The objective of the game is to defeat all 6 of the opponent's pokemon first.
+A Pokémon battle between a player and an opponent is a turn-based game where both sides have 6 Pokémon each. At any point of time, exactly one Pokémon from each side is *active* i.e. out for battle. At each turn, both the player and the opponent can either use their active Pokémon to make a move, or switch out their active Pokémon. The objective of the game is to defeat all 6 of the opponent's Pokémon first.
 
-Each pokemon has a number of statistics associated with it:
-- Type: Each pokemon can have one or two types.
-- Status Conditions: During the course of the battle, a pokemon can get afflicted with one of several possible status conditions (sleep, paralysis, burn, frost, poison), each of which has different effects on the other statistics of the pokemon.
-- Moves: Each pokemon has a set of 4 moves, each of which have their own statistics:
+Each Pokémon has a number of statistics associated with it:
+
+- Type: Each Pokémon can have one or two types.
+- Status Conditions: During the course of the battle, a Pokémon can get afflicted with one of several possible status conditions (sleep, paralysis, burn, frost, poison), each of which has different effects on the other statistics of the Pokémon.
+- Moves: Each Pokémon has a set of 4 moves, each of which have their own statistics:
   
-  - Base Power: The damaging power of a move. Moves with higher base power will cause higher damage to the opponent pokemon.
+  - Base Power: The damaging power of a move. Moves with higher base power will cause higher damage to the opponent Pokémon.
   - Accuracy: The chance of a move hitting the opponent.
   - Move category: Moves are categorized as physical, special and status.
   - Priority: Some moves with higher priority always go first.
-  - Type: Each move has exactly one type, chosen from the set of pokemon types. Moves with types matching the pokemon playing that move get an increase in base power. Moves of a certain type may have higher effect / lower effect / no effect on pokemon of a certain type, which is computed using a type matchup table.
+  - Type: Each move has exactly one type, chosen from the set of Pokémon types. Moves with types matching the Pokémon playing that move get an increase in base power. Moves of a certain type may have higher effect / lower effect / no effect on Pokémon of a certain type, which is computed using a type matchup table.
   - PP: The number of times you can use a single move
-  - Secondary effect: Some moves may have a secondary effect like increasing the stats of the active pokemon or inflicting a status condition on the opponent.
-    
-- HP: The hit-points of a pokemon. A damaging move will reduce the hit-points, and the pokemon is defeated when the HP falls to zero.
-- Atk / SpAtk: The attacking power of a pokemon, which influences the base power of its moves.
-- Def / SpDef: The defensive power of a pokemon which influences how much HP it loses when hit by moves.
-- Speed: A pokemon's speed. Moves of faster pokemon will go first.
-- Abilities, Items, Natures: Each pokemon has an ability and a nature, and can hold an item. These may boost one of its stats, reduce those of the opponent etc.
+  - Secondary effect: Some moves may have a secondary effect like increasing the stats of the active Pokémon or inflicting a status condition on the opponent.
 
-Note: To reduce complexity and focus on the core problem, we have ignored some functionalities like weather conditions, secondary status conditions like confusion/infatuation/flinching, single type pokemon, complex moves, items and abilities, IVs. Also, the battle format used is gen4anythinggoes, which automatically discards Mega Evolutions, Z-Moves, Dynamax/Galarian Pokemon, and Terrastalize. This ensures consistency and simplicity while keeping the core philosophy of a pokemon battle intact.
+- HP: The hit-points of a Pokémon. A damaging move will reduce the hit-points, and the Pokémon is defeated when the HP falls to zero.
+- Atk / SpAtk: The attacking power of a Pokémon, which influences the base power of its moves.
+- Def / SpDef: The defensive power of a Pokémon which influences how much HP it loses when hit by moves.
+- Speed: A Pokémon's speed. Moves of faster Pokémon will go first.
+- Abilities, Items, Natures: Each Pokémon has an ability and a nature, and can hold an item. These may boost one of its stats, reduce those of the opponent etc.
 
-We created 6 balanced teams of 6 dual-type pokemon each, with every pokemon having an item (Leftovers), an ability, a nature, EVs to boost stats, and a set of 4 moves.
+Note: To reduce complexity and avoid errors, we have ignored some functionalities like weather conditions, secondary status conditions like confusion/infatuation/flinching, single type Pokémon, complex moves, items and abilities, IVs. Also, the battle format used is *gen4anythinggoes*, which automatically discards Mega Evolutions, Z-Moves, Dynamax/Galarian Pokémon, and Terrastalize. This ensures consistency and simplicity while keeping the core philosophy of a Pokémon battle intact.
+
+We created 6 teams of 6 dual-type Pokémon each, with every Pokémon having an item, an ability, a nature, EVs to boost stats, and a set of 4 moves. The first four teams are of similar strength, with the 5th team being slightly stronger and the 6th being slightly weaker.
 
 ---
 
@@ -165,41 +167,87 @@ Our DQN consists of a feedforward neural network that approximates the Q-functio
 
 ## Results
 
+We tested the DQN Agent against a set of 3 standard players provided by the *poke-env* library:
 
+- **RandomPlayer**: Selects a random action at each turn
+- **MaxBasePowerPlayer**: A greedy player, selects the move with the highest base power at each turn.
+- **SimpleHeuristicsPlayer**: A human-like player which understands effective switching and type matchups.
+
+Since we had 6 Pokémon team choices for both the player and opponent, and 3 opponents, we had a total of 108 possible configurations. The DQN agent was trained on each of these configurations for 5000 episodes, and then evaluated for 100 episodes. The evaluation results are given below.
+
+### Win rates against RandomPlayer
+
+| Opponent Team \ Agent Team | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
+|----------------------------|-------|-------|-------|-------|-------|-------|
+| Team1                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team2                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team3                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team4                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team5                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team6                     |   0   |   0   |   0   |   0   |   0   |   0   |
+
+### Win rates against MaxBasePowerPlayer
+
+| Opponent Team \ Agent Team | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
+|----------------------------|-------|-------|-------|-------|-------|-------|
+| Team1                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team2                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team3                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team4                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team5                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team6                     |   0   |   0   |   0   |   0   |   0   |   0   |
+
+### Win rates against SimpleHeuristicsPlayer
+
+| Opponent Team \ Agent Team | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
+|----------------------------|-------|-------|-------|-------|-------|-------|
+| Team1                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team2                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team3                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team4                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team5                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Team6                     |   0   |   0   |   0   |   0   |   0   |   0   |
 
 ---
 
 ## Observations
 
-
-
 ---
 
-## Conclusion
+## Challenges
 
+The biggest challenge was designing a good state embedding which effectively captured all information in a single battle state. Initially we kept a very simple and sparse state vector with very limited information, and the results were not good. The partially observable nature of the game also made it harder to encode opponent information into the state vector. Comparatively, designing the reward function was much easier, and even a simple reward function gave good results.
 
+Designing the teams was another challenge. We have 4 balanced teams along with one slightly stronger and one slightly weaker team, to check if the agent is winning just because of a good team, or if it has actually learnt the optimal moves at each step. The results show that the agent is indeed winning more with a stronger team, and less with a weaker team, but it is a slight difference, and the agent continues to win the majority of the battles against the random and greedy players.
+
+The last challenge was hyperparameter tuning. There are a lot of tunable parameters, and training one configuration of agent team, opponent team, and agent class takes quite a bit of time. So finding the right parameters to have the maximum winrate was a time-consuming process.
 
 ---
 
 ## Steps to Run
 
-To install requirements, run
+Python >= 3.10 is required. To install the other requirements, run
 
-```
+```none
 pip install -r requirements.txt
 ```
 
-In the `pokemon-showdown` directory, run
+In the `Pokémon-showdown` directory, run
 
-```
+```none
 npm install
-node pokemon-showdown start --no-security
+node Pokémon-showdown start --no-security
 ```
+
 This will start a Showdown server at  `localhost:8000`. This needs to be running for training and evaluation.
+
+*Note: Server may not run on IIITB-Milan, a hotspot may be required.*
+
+The state space embedding and reward function for the agent are in `src/utils.py`, with the actual model in `src/agent.py`. The teams used for training are in `teams.py`.
 
 To train the model, navigate to `src` and run
 
-```
+```none
 python train.py
 ```
 
@@ -207,18 +255,18 @@ This will start a training loop with the configuration specified in `train.py`. 
 
 To evaluate the model, navigate to `src` and run
 
-```
+```none
 python evaluate.py
 ```
+
 This will try to find a model with the configuration specified in `evaluate.py`, and if it exists, evaluate its performance.
 
 ---
 
 ## Contributions
 
-IMT2022076 Mohit Naik: Implemented the Deep Q-Network, along with the state embedding and reward function.
-IMT2022086 Ananthakrishna Noob: Did nothing
+[IMT2022076 Mohit Naik](https://github.com/mohit065): Implemented the `utils.py` and `agent.py` files, and designed the teams in `teams.py`
+
+[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Implemented the `train.py` and `evaluate.py` files along with hyperparameter tuning for the DQN agent. Also wrote the report.
 
 ---
-
-Github Link : https://github.com/mohit065/rlmon
