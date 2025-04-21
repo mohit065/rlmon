@@ -152,30 +152,72 @@ Our DQN consists of a feedforward neural network that approximates the Q-functio
 ### Features
 
 - Experience Replay: Transitions are stored in a replay buffer and sampled in batches during training. This breaks temporal correlations and improves stability.
+  
 - Target Network: A separate target network is used to compute stable Q-value targets. It is periodically synced with the main network to avoid oscillating targets.
+  
 - Epsilon-Greedy Exploration: The agent starts by exploring random actions (high epsilon) and gradually shifts towards exploitation (lower epsilon) as it learns more about the environment.
+  
 - Reward Function: Designed to capture both terminal outcomes (win/loss) and intermediate progress (damage dealt, Pokémon fainted, status applied), encouraging consistent and strategic play.
+  
 - Double DQN: To reduce overestimation bias, the agent uses the policy network to select the best next action, and the target network to evaluate it.
 
 ---
 
 ## Results
 
+
+
 ---
 
 ## Observations
+
+
 
 ---
 
 ## Conclusion
 
+
+
 ---
 
 ## Steps to Run
 
+To install requirements, run
+
+```
+pip install -r requirements.txt
+```
+
+In the `pokemon-showdown` directory, run
+
+```
+npm install
+node pokemon-showdown start --no-security
+```
+This will start a Showdown server at  `localhost:8000`. This needs to be running for training and evaluation.
+
+To train the model, navigate to `src` and run
+
+```
+python train.py
+```
+
+This will start a training loop with the configuration specified in `train.py`. After training, the model will be saved in `models`.
+
+To evaluate the model, navigate to `src` and run
+
+```
+python evaluate.py
+```
+This will try to find a model with the configuration specified in `evaluate.py`, and if it exists, evaluate its performance.
+
 ---
 
 ## Contributions
+
+IMT2022076 Mohit Naik: Implemented the Deep Q-Network, along with the state embedding and reward function.
+IMT2022086 Ananthakrishna Noob: Did nothing
 
 ---
 
