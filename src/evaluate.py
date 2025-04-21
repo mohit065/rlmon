@@ -6,8 +6,8 @@ from agent import DQNAgent
 from poke_env.player import RandomPlayer, MaxBasePowerPlayer, SimpleHeuristicsPlayer
 
 # Config
-agent_team_id = 1
-opponent_team_id = 3
+agent_team_id = 0
+opponent_team_id = 0
 opponent_class = RandomPlayer
 
 NUM_EPISODES = 100
@@ -15,18 +15,17 @@ BATTLE_FORMAT = "gen4anythinggoes"
 MODEL_DIR = "../models"
 
 async def evaluate():
-    model_path = f"{MODEL_DIR}/{opponent.__name__}_{agent_team_id}_{opponent_team_id}.pth"
+    # Set agent and opponent
+    opponent = opponent_class(battle_format=BATTLE_FORMAT, team=teams[opponent_team_id])
+    agent = DQNAgent(battle_format=BATTLE_FORMAT, team=teams[agent_team_id])
+    model_path = f"{MODEL_DIR}/{opponent.__class__.__name__}_{1+agent_team_id}_{1+opponent_team_id}.pth"
 
     if not os.path.exists(model_path):
         print(f"NO MODEL FOUND TO EVALUATE AT {model_path}")
         return
 
-    # Set agent and opponent
-    opponent = opponent_class(battle_format=BATTLE_FORMAT, team=teams[opponent_team_id])
-    agent = DQNAgent(battle_format=BATTLE_FORMAT, team=teams[agent_team_id])
     agent.load_model(model_path)
-
-    print(f"\nEVALUATING: DQNAgent (TEAM {agent_team_id}) VS {opponent.__name__} (TEAM {opponent_team_id})")
+    print(f"\nEVALUATING: DQNAgent (TEAM {1+agent_team_id}) VS {opponent.__class__.__name__} (TEAM {1+opponent_team_id})")
     print(f"USING MODEL: {model_path}")
     print(f"RUNNING {NUM_EPISODES} EPISODES...\n")
 

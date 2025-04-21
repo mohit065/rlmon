@@ -476,7 +476,7 @@ class DQNAgent(Player):
     def load_model(self, path):
         """Loads the policy and target networks, optimizer state, and step count."""
 
-        checkpoint = torch.load(path, map_location=device)
+        checkpoint = torch.load(path, map_location=device, weights_only=True)
         self.policy_net.load_state_dict(checkpoint['policy_net_state_dict'])
         self.target_net.load_state_dict(checkpoint['target_net_state_dict'])
         self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])

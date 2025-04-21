@@ -1,5 +1,5 @@
-import time
 import os
+import time
 import asyncio
 
 from teams import teams
@@ -14,7 +14,7 @@ MODEL_DIR = "../models"                  # Directory to save models
 async def main():
     # Agent and Opponent teams
     agent_team_id = 0
-    opponent_team_id = 1
+    opponent_team_id = 0
 
     # 3 classes of opponents
     opponent1 = RandomPlayer(battle_format=BATTLE_FORMAT, team=teams[opponent_team_id])
