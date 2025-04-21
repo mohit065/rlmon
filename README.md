@@ -243,7 +243,7 @@ This will start a Showdown server at  `localhost:8000`. This needs to be running
 
 *Note: Server may not run on IIITB-Milan, a hotspot may be required.*
 
-The state space embedding and reward function for the agent are in `src/utils.py`, with the actual model in `src/agent.py`. The teams used for training are in `teams.py`.
+The DQNAgent class is implemented in `src/agent.py`.
 
 To train the model, navigate to `src` and run
 
@@ -265,8 +265,8 @@ This will try to find a model with the configuration specified in `evaluate.py`,
 
 ## Contributions
 
-[IMT2022076 Mohit Naik](https://github.com/mohit065): Implemented the `utils.py` and `agent.py` files, and designed the teams in `teams.py`
+[IMT2022076 Mohit Naik](https://github.com/mohit065): Implemented the `agent.py` file, and designed the teams in `teams.py`.
 
-[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Implemented the `train.py` and `evaluate.py` files along with hyperparameter tuning for the DQN agent. Also wrote the report.
+[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Implemented the `train.py` and `evaluate.py` files along with hyperparameter tuning for the DQN agent.
 
 ---
