@@ -10,23 +10,32 @@ Teams used for training and evaluation. You can add your own team in showdown fo
 '''
 
 team1 = """
-Gengar @ Leftovers
-Ability: Levitate  
-EVs: 4 Def / 252 SpA / 252 Spe  
-Timid Nature  
-- Thunderbolt  
-- Sludge Bomb  
-- Shadow Ball  
+Exeggutor @ Leftovers
+Ability: Chlorophyll  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Modest Nature  
+- Ancient Power  
+- Energy Ball  
 - Psychic  
+- Sludge Bomb 
 
-Flygon @ Leftovers
-Ability: Levitate  
-EVs: 252 Atk / 4 SpD / 252 Spe  
-Jolly Nature  
-- Crunch  
-- Body Slam  
-- Dragon Claw  
-- Earthquake  
+Drapion @ Leftovers
+Ability: Sniper  
+EVs: 252 Atk / 4 SpD / 252 HP  
+Adamant Nature  
+- Night Slash  
+- Brick Break  
+- X-Scissor  
+- Poison Jab
+
+Altaria @ Leftovers
+Ability: Natural Cure  
+EVs: 252 HP / 4 SpA / 252 SpD  
+Calm Nature  
+- Dragon Pulse  
+- Flamethrower  
+- Ice Beam  
+- Steel Wing  
 
 Scizor @ Leftovers
 Ability: Swarm  
@@ -37,32 +46,24 @@ Adamant Nature
 - Night Slash  
 - Double-Edge  
 
-Roserade @ Leftovers
-Ability: Natural Cure  
-EVs: 4 Def / 252 SpA / 252 Spe  
-Timid Nature  
-- Leaf Storm  
-- Stun Spore  
-- Sleep Powder  
-- Sludge Bomb  
-
-Aerodactyl @ Leftovers
-Ability: Rock Head  
-EVs: 252 Atk / 4 SpD / 252 Spe  
-Jolly Nature  
-- Ancient Power  
-- Aqua Tail  
-- Crunch  
-- Dragon Claw  
-
-Empoleon @ Leftovers
-Ability: Torrent  
-EVs: 252 HP / 252 SpA / 4 SpD  
-Modest Nature  
-- Avalanche  
+Rhyperior @ Leftovers
+Ability: Lightning Rod  
+EVs: 248 HP / 252 Atk / 8 SpD  
+Adamant Nature  
 - Brick Break  
-- Drill Peck  
-- Hydro Pump  
+- Earthquake  
+- Avalanche  
+- Stone Edge
+
+Swampert @ Leftovers
+Ability: Torrent  
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Aqua Tail  
+- Brick Break  
+- Earthquake  
+- Ice Punch  
+ 
 """
 
 team2 = """
@@ -73,25 +74,25 @@ Adamant Nature
 - Earthquake  
 - Body Slam  
 - Seed Bomb  
-- Double-Edge  
+- Double-Edge    
 
-Ludicolo @ Leftovers
-Ability: Swift Swim  
+Nidoking (M) @ Leftovers
+Ability: Poison Point  
 EVs: 4 HP / 252 SpA / 252 Spe  
-Modest Nature  
-- Focus Blast  
+Timid Nature  
+- Dragon Pulse  
+- Flamethrower  
 - Ice Beam  
-- Surf  
-- Giga Drain  
+- Thunderbolt 
 
-Salamence @ Leftovers
-Ability: Intimidate  
-EVs: 252 Atk / 4 SpA / 252 Spe  
-Naive Nature  
-- Dragon Claw  
-- Earthquake  
-- Brick Break  
-- Stone Edge  
+Gallade (M) @ Leftovers
+Ability: Steadfast  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Adamant Nature  
+- Close Combat  
+- Ice Punch  
+- Fire Punch  
+- Thunder Punch 
 
 Skarmory @ Leftovers
 Ability: Keen Eye  
@@ -102,14 +103,14 @@ Impish Nature
 - Facade  
 - Steel Wing  
 
-Claydol @ Leftovers
-Ability: Levitate  
-EVs: 252 HP / 144 Def / 112 SpA  
-Bold Nature  
-- Earth Power  
-- Shadow Ball  
-- Ancient Power  
-- Psychic  
+Aggron @ Leftovers
+Ability: Rock Head  
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Double-Edge  
+- Superpower  
+- Head Smash  
+- Fire Punch 
 
 Lucario @ Leftovers
 Ability: Inner Focus  
@@ -158,34 +159,34 @@ Timid Nature
 - Ice Beam  
 - Thunderbolt  
 
-Drapion @ Leftovers
-Ability: Sniper  
-EVs: 252 Atk / 4 SpD / 252 HP  
-Adamant Nature  
-- Night Slash  
-- Brick Break  
-- X-Scissor  
-- Poison Jab  
+Roserade @ Leftovers
+Ability: Natural Cure  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+- Leaf Storm  
+- Stun Spore  
+- Sleep Powder  
+- Sludge Bomb  
 
-Aggron @ Leftovers
+Steelix @ Leftovers
 Ability: Rock Head  
-EVs: 252 HP / 252 Atk / 4 SpD  
-Adamant Nature  
-- Double-Edge  
-- Superpower  
-- Head Smash  
-- Fire Punch  
+EVs: 252 HP / 252 Def / 4 Atk  
+Impish Nature  
+- Earthquake  
+- Aqua Tail  
+- Stone Edge  
+- Crunch  
 """
 
 team4 = """
-Swampert @ Leftovers
+Empoleon @ Leftovers
 Ability: Torrent  
-EVs: 252 HP / 252 Atk / 4 SpD  
-Adamant Nature  
-- Aqua Tail  
+EVs: 252 HP / 252 SpA / 4 SpD  
+Modest Nature  
+- Avalanche  
 - Brick Break  
-- Earthquake  
-- Ice Punch  
+- Drill Peck  
+- Hydro Pump 
 
 Dragonite @ Leftovers
 Ability: Inner Focus  
@@ -214,23 +215,23 @@ Jolly Nature
 - Avalanche  
 - X-Scissor  
 
-Metagross @ Leftovers
-Ability: Clear Body  
-EVs: 252 Atk / 252 HP / 4 Def  
-Adamant Nature  
-- Meteor Mash  
+Mamoswine @ Leftovers
+Ability: Oblivious  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
 - Double-Edge  
-- Hammer Arm  
 - Earthquake  
+- Superpower  
+- Stone Edge 
 
-Altaria @ Leftovers
-Ability: Natural Cure  
-EVs: 252 HP / 4 SpA / 252 SpD  
-Calm Nature  
-- Dragon Pulse  
-- Flamethrower  
-- Ice Beam  
-- Steel Wing  
+Gliscor @ Leftovers
+Ability: Hyper Cutter  
+EVs: 244 HP / 12 Atk / 252 Def  
+Impish Nature  
+- Facade  
+- Aqua Tail  
+- Night Slash  
+- Poison Jab 
 """
 
 team5 = """
@@ -243,32 +244,32 @@ Naive Nature
 - Thunder Punch  
 - Flare Blitz  
 
-Exeggutor @ Leftovers
-Ability: Chlorophyll  
-EVs: 4 HP / 252 SpA / 252 Spe  
-Modest Nature  
-- Ancient Power  
-- Energy Ball  
-- Psychic  
+Gengar @ Leftovers
+Ability: Levitate  
+EVs: 4 Def / 252 SpA / 252 Spe  
+Timid Nature  
+- Thunderbolt  
 - Sludge Bomb  
+- Shadow Ball  
+- Psychic  
 
-Rhyperior @ Leftovers
-Ability: Lightning Rod  
-EVs: 248 HP / 252 Atk / 8 SpD  
-Adamant Nature  
-- Brick Break  
-- Earthquake  
-- Avalanche  
-- Stone Edge  
-
-Gallade (M) @ Leftovers
-Ability: Steadfast  
+Aerodactyl @ Leftovers
+Ability: Rock Head  
 EVs: 252 Atk / 4 SpD / 252 Spe  
-Adamant Nature  
-- Close Combat  
-- Ice Punch  
-- Fire Punch  
-- Thunder Punch  
+Jolly Nature  
+- Ancient Power  
+- Aqua Tail  
+- Crunch  
+- Dragon Claw
+
+Salamence @ Leftovers
+Ability: Intimidate  
+EVs: 252 Atk / 4 SpA / 252 Spe  
+Naive Nature  
+- Dragon Claw  
+- Earthquake  
+- Brick Break  
+- Stone Edge  
 
 Gyarados @ Leftovers
 Ability: Intimidate  
@@ -279,14 +280,15 @@ Adamant Nature
 - Earthquake  
 - Body Slam  
 
-Mamoswine @ Leftovers
-Ability: Oblivious  
-EVs: 252 Atk / 4 SpD / 252 Spe  
-Jolly Nature  
+Metagross @ Leftovers
+Ability: Clear Body  
+EVs: 252 Atk / 252 HP / 4 Def  
+Adamant Nature  
+- Meteor Mash  
 - Double-Edge  
-- Earthquake  
-- Superpower  
-- Stone Edge  
+- Hammer Arm  
+- Earthquake 
+ 
 """
 
 team6 = """
@@ -299,14 +301,14 @@ Jolly Nature
 - Earthquake  
 - Flare Blitz  
 
-Gliscor @ Leftovers
-Ability: Hyper Cutter  
-EVs: 244 HP / 12 Atk / 252 Def  
-Impish Nature  
-- Facade  
-- Aqua Tail  
-- Night Slash  
-- Poison Jab  
+Flygon @ Leftovers
+Ability: Levitate  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Crunch  
+- Body Slam  
+- Dragon Claw  
+- Earthquake
 
 Staraptor @ Leftovers
 Ability: Intimidate  
@@ -317,23 +319,23 @@ Jolly Nature
 - Steel Wing  
 - Double-Edge  
 
-Steelix @ Leftovers
-Ability: Rock Head  
-EVs: 252 HP / 252 Def / 4 Atk  
-Impish Nature  
-- Earthquake  
-- Aqua Tail  
-- Stone Edge  
-- Crunch  
+Claydol @ Leftovers
+Ability: Levitate  
+EVs: 252 HP / 144 Def / 112 SpA  
+Bold Nature  
+- Earth Power  
+- Shadow Ball  
+- Ancient Power  
+- Psychic 
 
-Nidoking (M) @ Leftovers
-Ability: Poison Point  
+Ludicolo @ Leftovers
+Ability: Swift Swim  
 EVs: 4 HP / 252 SpA / 252 Spe  
-Timid Nature  
-- Dragon Pulse  
-- Flamethrower  
+Modest Nature  
+- Focus Blast  
 - Ice Beam  
-- Thunderbolt  
+- Surf  
+- Giga Drain 
 
 Breloom @ Leftovers
 Ability: Poison Heal  

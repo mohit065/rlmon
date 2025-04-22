@@ -34,7 +34,7 @@ async def evaluate():
 
     # Log results
     win_rate = agent.n_won_battles / agent.n_finished_battles if agent.n_finished_battles > 0 else 0.0
-    print(f"FINAL WIN RATE: {win_rate:.4f} ({agent.n_won_battles}/{agent.n_finished_battles})")
+    print(f"FINAL WIN RATE: {win_rate:.3f} ({agent.n_won_battles}/{agent.n_finished_battles})")
 
 if __name__ == "__main__":
     try:

@@ -44,7 +44,7 @@ async def main():
         if episode % LOG_FREQ == 0:
             elapsed_time = time.time() - start_time
             print(f"EP: {episode}/{NUM_EPISODES} | STEPS: {total_steps} | "
-                  f"WINRATE: {total_win_rate:.4f} ({total_wins}/{total_battles}) | "
+                  f"WINRATE: {total_win_rate:.3f} ({total_wins}/{total_battles}) | "
                   f"TIME: {elapsed_time:.2f}s")
 
     # Final metrics and model save
@@ -55,7 +55,7 @@ async def main():
     model_path = f"{MODEL_DIR}/{opponent.__class__.__name__}_{1+agent_team_id}_{1+opponent_team_id}.pth"
     agent.save_model(model_path)
 
-    print(f"\nFINAL W/R: {final_win_rate:.4f} ({final_total_wins}/{final_total_battles})")
+    print(f"\nFINAL W/R: {final_win_rate:.3f} ({final_total_wins}/{final_total_battles})")
     print(f"FINAL STEPS: {agent.steps_done}")
     print(f"MODEL SAVED TO {model_path}")
 

@@ -265,8 +265,8 @@ This will try to find a model with the configuration specified in `evaluate.py`,
 
 ## Contributions
 
-[IMT2022076 Mohit Naik](https://github.com/mohit065): Implemented the `agent.py` file, and designed the teams in `teams.py`.
+[IMT2022076 Mohit Naik](https://github.com/mohit065): Implemented the `agent.py` and `teams.py` files. Also wrote the report
 
-[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Implemented the `train.py` and `evaluate.py` files along with hyperparameter tuning for the DQN agent.
+[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Implemented the `train.py` and `evaluate.py` files. Also performed all the evaluations and hyperparameter tuning.
 
 ---
