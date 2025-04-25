@@ -232,7 +232,7 @@ Since we had 6 Pokémon team choices for both the player and opponent, and 3 opp
 
 The training curves and evaluation tables provide several insights:
 
-- The agent clearly learns, improving performance against all types of opponent during training episodes. Learning against RandomPlayer is fast, and performance plateaus early. Learning against MaxBasePowerPlayer and SimpleHeuristicsPlayer is slower and appears incomplete after 5000 episodes (Figs 2, 3). The non converging curves for harder opponents suggest that longer training could yield further improvements. Training was capped at 5000 episodes uniformly for comparable results across all configurations.
+- The agent clearly learns, improving performance against all types of opponent during training episodes. Learning against RandomPlayer is fast, and performance plateaus early. Learning against MaxBasePowerPlayer and SimpleHeuristicsPlayer is slower and appears incomplete after 5000 episodes. The non converging curves for harder opponents suggest that longer training could yield further improvements. Training was capped at 5000 episodes uniformly for comparable results across all configurations.
   
 - The final win rates confirm the expected opponent difficulty: RandomPlayer (easy) > MaxBasePowerPlayer (moderate) > SimpleHeuristicsPlayer (hard).
   
