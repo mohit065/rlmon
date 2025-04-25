@@ -16,7 +16,7 @@
 
 ## Overview
 
-This project aims to implement, train and evaluate a reinforcement learning agent to play Pokémon battles on the Pokémon Showdown battle simulator. We first formulate a Pokémon battle as a *Markov Decision Process* (MDP), then train the agent to learn the optimal policy at each state via Deep Q-Learning, and evaluate its performance against a set of standard opponents.
+This project aims to implement, train and evaluate a reinforcement learning agent to play Pokémon battles on the Pokémon Showdown battle simulator. We first formulate a Pokémon battle as a **Markov Decision Process** (MDP), then train the agent to learn the optimal policy at each state via Deep Q-Learning, and evaluate its performance against a set of standard opponents.
 
 ---
 
@@ -175,7 +175,13 @@ We tested the DQN Agent against a set of 3 standard players provided by the *pok
 
 Since we had 6 Pokémon team choices for both the player and opponent, and 3 opponents, we had a total of 108 possible configurations. The DQN agent was trained on each of these configurations for 5000 episodes, and then evaluated for 100 episodes. The evaluation results are given below.
 
-### Win rates against RandomPlayer
+### RandomPlayer
+
+#### Winrate vs episodes
+
+![random-player](plots/random_player.png)
+
+#### Evaluation results for all team configurations
 
 | Opponent → <br> Agent ↓  | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
 |--------------------------|-------|-------|-------|-------|-------|-------|
@@ -186,7 +192,13 @@ Since we had 6 Pokémon team choices for both the player and opponent, and 3 opp
 | Team5                    | 92.77 | 93.01 | 93.54 | 92.90 | 89.50 | 95.61 |
 | Team6                    | 88.10 | 87.95 | 88.54 | 88.20 | 84.02 | 92.15 |
 
-### Win rates against MaxBasePowerPlayer
+### MaxBasePowerPlayer
+
+#### Winrate vs episodes
+
+![mbp-player](plots/mbp_player.png)
+
+#### Evaluation results for all team configurations
 
 | Opponent → <br> Agent ↓  | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
 |--------------------------|-------|-------|-------|-------|-------|-------|
@@ -197,7 +209,13 @@ Since we had 6 Pokémon team choices for both the player and opponent, and 3 opp
 | Team5                    | 79.88 | 80.54 | 81.22 | 80.11 | 72.64 | 88.93 |
 | Team6                    | 69.33 | 68.75 | 70.13 | 69.54 | 61.37 | 78.49 |
 
-### Win rates against SimpleHeuristicsPlayer
+### SimpleHeuristicsPlayer
+
+#### Winrate vs episodes
+
+![sh-player](plots/sh_player.png)
+
+#### Evaluation results for all team configurations
 
 | Opponent → <br> Agent ↓  | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
 |--------------------------|-------|-------|-------|-------|-------|-------|
@@ -273,8 +291,8 @@ This will try to find a model with the configuration specified in `evaluate.py`,
 
 ## Contributions
 
-[IMT2022076 Mohit Naik](https://github.com/mohit065): Implemented the `agent.py` and `teams.py` files. Also wrote the report
+[IMT2022076 Mohit Naik](https://github.com/mohit065): Wrote code for the state embedding, reward function, team setup and the DQN model, along with writing the report.
 
-[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Implemented the `train.py` and `evaluate.py` files. Also performed all the evaluations and hyperparameter tuning.
+[IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Wrote code for model training and evaluation, along with performing the evaluations and hyperparameter tuning.
 
 ---
