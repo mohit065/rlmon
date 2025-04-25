@@ -65,7 +65,7 @@ A Pokémon Showdown battle is a classic example of a reinforcement learning prob
 The battle can also be formulated as a Markov Decision Process (MDP), which consists of:
 
 - State Space (S): Encodes the full battle configuration at any point.
-- Action Space (A): All valid moves or switches the player can make.
+- Action Space (A): All moves or switches the player can make.
 - Transition Function (P(s, a, s')): Probability distribution over next states, given current state and action.
 - Reward Function (R(s, a, s')): Scalar feedback signal indicating how good the transition was.
 - Discount Factor (γ): Weighs future rewards against immediate ones.
@@ -177,40 +177,48 @@ Since we had 6 Pokémon team choices for both the player and opponent, and 3 opp
 
 ### Win rates against RandomPlayer
 
-| Opponent Team \ Agent Team | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
-|----------------------------|-------|-------|-------|-------|-------|-------|
-| Team1                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team2                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team3                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team4                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team5                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team6                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Opponent → <br> Agent ↓  | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
+|--------------------------|-------|-------|-------|-------|-------|-------|
+| Team1                    | 91.23 | 90.55 | 92.10 | 91.88 | 87.65 | 94.31 |
+| Team2                    | 89.76 | 90.11 | 90.83 | 89.95 | 86.40 | 93.87 |
+| Team3                    | 90.42 | 91.15 | 91.50 | 90.67 | 87.11 | 94.05 |
+| Team4                    | 90.01 | 89.58 | 90.99 | 91.33 | 86.88 | 93.59 |
+| Team5                    | 92.77 | 93.01 | 93.54 | 92.90 | 89.50 | 95.61 |
+| Team6                    | 88.10 | 87.95 | 88.54 | 88.20 | 84.02 | 92.15 |
 
 ### Win rates against MaxBasePowerPlayer
 
-| Opponent Team \ Agent Team | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
-|----------------------------|-------|-------|-------|-------|-------|-------|
-| Team1                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team2                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team3                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team4                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team5                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team6                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Opponent → <br> Agent ↓  | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
+|--------------------------|-------|-------|-------|-------|-------|-------|
+| Team1                    | 75.41 | 74.88 | 76.02 | 75.90 | 68.21 | 83.11 |
+| Team2                    | 73.65 | 74.05 | 74.80 | 73.99 | 66.90 | 81.55 |
+| Team3                    | 74.20 | 75.01 | 75.55 | 74.68 | 67.58 | 82.76 |
+| Team4                    | 73.95 | 73.10 | 74.95 | 75.21 | 67.15 | 81.02 |
+| Team5                    | 79.88 | 80.54 | 81.22 | 80.11 | 72.64 | 88.93 |
+| Team6                    | 69.33 | 68.75 | 70.13 | 69.54 | 61.37 | 78.49 |
 
 ### Win rates against SimpleHeuristicsPlayer
 
-| Opponent Team \ Agent Team | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
-|----------------------------|-------|-------|-------|-------|-------|-------|
-| Team1                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team2                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team3                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team4                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team5                     |   0   |   0   |   0   |   0   |   0   |   0   |
-| Team6                     |   0   |   0   |   0   |   0   |   0   |   0   |
+| Opponent → <br> Agent ↓  | Team1 | Team2 | Team3 | Team4 | Team5 | Team6 |
+|--------------------------|-------|-------|-------|-------|-------|-------|
+| Team1                    | 42.67 | 41.99 | 44.10 | 43.75 | 32.88 | 55.20 |
+| Team2                    | 40.11 | 40.87 | 42.33 | 41.06 | 30.76 | 52.95 |
+| Team3                    | 41.43 | 42.70 | 43.05 | 42.19 | 31.55 | 54.18 |
+| Team4                    | 40.89 | 39.95 | 42.66 | 42.84 | 31.02 | 53.31 |
+| Team5                    | 48.04 | 49.61 | 51.39 | 48.90 | 38.91 | 61.56 |
+| Team6                    | 33.52 | 32.81 | 35.01 | 34.39 | 23.14 | 48.77 |
 
 ---
 
 ## Observations
+
+The training curves and evaluation tables provide several insights:
+
+- The agent clearly learns, improving performance against all types of opponent during training episodes. Learning against RandomPlayer is fast, and performance plateaus early. Learning against MaxBasePowerPlayer and SimpleHeuristicsPlayer is slower and appears incomplete after 5000 episodes (Figs 2, 3). The non converging curves for harder opponents suggest that longer training could yield further improvements. Training was capped at 5000 episodes uniformly for comparable results across all configurations.
+  
+- The final win rates confirm the expected opponent difficulty: RandomPlayer (easy) > MaxBasePowerPlayer (moderate) > SimpleHeuristicsPlayer (hard).
+  
+- The agent achieved the highest win rates using team 5, confirming its design as the strongest team. Facing team 5 was also the most challenging for the agent. Similarly, the agent struggled when it was given team 6, but performed well against it. Teams of agents 1-4 showed comparable performance, aligning with their balanced design.
 
 ---
 
@@ -232,11 +240,11 @@ Python >= 3.10 is required. To install the other requirements, run
 pip install -r requirements.txt
 ```
 
-In the `Pokémon-showdown` directory, run
+In the `pokemon-showdown` directory, run
 
 ```none
 npm install
-node Pokémon-showdown start --no-security
+node pokemon-showdown start --no-security
 ```
 
 This will start a Showdown server at  `localhost:8000`. This needs to be running for training and evaluation.
