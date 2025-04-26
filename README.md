@@ -285,7 +285,7 @@ To evaluate the model, navigate to `src` and run
 python evaluate.py
 ```
 
-This will try to find a model with the configuration specified in `evaluate.py`, and if it exists, evaluate its performance.
+This will try to find a model with the configuration specified in `evaluate.py`, and if it exists, evaluate its performance. A model trained against RandomPlayer Team 1 with agent team also as 1 is already present in the models folder.
 
 ---
 
@@ -296,3 +296,5 @@ This will try to find a model with the configuration specified in `evaluate.py`,
 [IMT2022086 Ananthakrishna K](https://github.com/Ananthakrishna-K-13): Wrote code for model training and evaluation, along with performing the evaluations and hyperparameter tuning.
 
 ---
+
+The project is documented in the following PDF report : [Report](report.pdf)
